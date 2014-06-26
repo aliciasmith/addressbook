@@ -1,0 +1,26 @@
+<div class="container-fluid">
+  <% @contacts.each do |contact| %>
+  <div class="row" id="contact<%= contact.id %>">
+		<div class="col-md-1 name"><%= render partial: "contact", collection:contact %></div>
+		<div class="col-md-1 address">
+				<div class="address1"><%= contact.address1 %></div>
+				<div class="address2"><%=contact.address2 %></div>
+				  <% if contact.address1.present? || contact.address2.present? %>
+					<br> 
+				  <% end %>
+			  
+				<div class="city"><%= contact.city %>
+				</div><% if contact.city.present? && contact.state.present? %>, <%end%>
+		
+				<div class="state"><%= contact.state %></div> 
+				<div class="zip"><%= contact.zip %></div>
+		</div>
+		<div class="col-md-1 phone"><%= contact.phone %></div>
+	  	<div class="col-md-1 email"><%= contact.email %></div>
+	  	<div class="col-md-1 type"><%= contact.dist_type %></div>
+		<div class="col-md-1 buttons">
+		<%= link_to image_tag('icons/edit-icon.png', alt:"Edit Contact"), edit_contact_path(contact), class:"edit iconlink" %>
+		<%= link_to image_tag('icons/delete-icon.png', alt:"Delete Contact"), contact_path(contact), method: :delete, data: { confirm: 'Are you sure you want to remove this person?' }, class:"delete iconlink" %>
+		</div>
+    </div><!-- /row -->
+	</div>

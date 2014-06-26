@@ -1,0 +1,74 @@
+<%= form_for @contact, :html => { :class => " ", :role => "form" }  do |f| %>
+  <% if @contact.errors.any? %>
+  <div class="alert alert-warning alert-dismissable">
+    <h3><%= pluralize(@contact.errors.count, "error") %> prohibited
+      this contact from being saved:</h3>
+    <ul>
+    <% @contact.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+  </div>
+  
+  <% end %>
+	<div class="h4">Name & Type</div>
+		  <div class="form-group">
+			<%= f.label :first_name %>
+			<%= f.text_field :first_name, :class => 'form-control input-sm' %>
+		  </div>
+		 
+		  <div class="form-group">
+			<%= f.label :last_name %>
+			<%= f.text_field :last_name, :class => 'form-control input-sm' %>
+		  </div>
+		  <div class="form-group">
+			<%= f.label "Distributor Type" %>
+			<%= f.text_field :dist_type, :class => 'form-control input-sm' %>
+		  </div>
+		  
+		  <hr>
+	
+	<div class="h4">Contact</div>  
+		  <div class="form-group">
+			<%= f.label :phone %>
+			<%= f.phone_field :phone, :class => 'form-control input-sm' %>
+		  </div>
+			<div class="form-group">
+			<%= f.label :email %>
+			<%= f.email_field :email, :class => 'form-control input-sm' %>
+		  </div>
+		<hr>				
+	
+	
+	<div class="h4">Address</div>	  
+		<div class="form-group">
+		<%= f.label "Address" %>
+		<%= f.text_field :address1, :class => 'form-control input-sm' %>
+	  </div>
+	 <!--<div class="form-group">
+		<%= f.label "Address 2" %>
+		<%= f.text_field :address2, :class => 'form-control input-sm' %>
+	  </div>-->
+	  <div class="form-group">
+		<%= f.label :city %>
+		<%= f.text_field :city, :class => 'form-control input-sm' %>
+	  </div>
+	  <div class="form-group">
+		<%= f.label :state %>
+		<%= f.text_field :state, :class => 'form-control input-sm' %>
+		<%#= select_tag 'State', options_for_select(us_states),:name=>"state",:id=>"state" %>
+	  </div>
+	  <div class="form-group">
+		<%= f.label :zip %>
+		<%= f.text_field :zip, :class => 'form-control input-sm' %>
+	  </div>
+	  <hr>
+	  <div class="form-group">
+	  <label></label>
+		<%= f.submit :class => 'btn btn-primary' %>
+		
+		<%= link_to 'Cancel', contacts_path, class:"btn-link leftbutton" %>
+	  </div>
+
+
+<% end %>

@@ -1,0 +1,17 @@
+<div class="h2"><%= render @contact %> <%= link_to image_tag('icons/edit-icon.png', alt:"Edit Contact"), edit_contact_path(@contact) %>
+</div>
+<section class="contact">
+
+<p><address><strong>Distributor Type:</strong> <%= @contact.dist_type %></p>
+<p><address><strong>Phone:</strong> <%= @contact.phone %></p>
+<p><address><strong>Email:</strong> <a href="mailto:<%= @contact.email %>#"><%= @contact.email %></a></p>
+<p><address class="address"><strong>Address:</strong> 
+				<div class="address1"><%= @contact.address1 %></div>
+				<div class="city"><%= @contact.city %></div><% if @contact.city.present? %>, <%end%>
+				<div class="state"><%= @contact.state %></div> 
+				<div class="zip"><%= @contact.zip %></div>
+			</address>
+			</p>
+</section>
+<p class="text-left"><%= link_to 'Back', contacts_path, class:"btn btn-default" %><p>
+

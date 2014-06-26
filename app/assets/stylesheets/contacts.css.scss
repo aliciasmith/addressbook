@@ -1,0 +1,116 @@
+// Place all the styles related to the contacts controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+$brand-default: darken(#E19014,10%);
+$label-min: 150px;
+$input-min: 350px;
+$gray: #666666;
+$gray-light: lighten(#000, 70%);
+$shadow: 1px 1px 3px $gray;
+
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+	background-color:#efefef
+}
+main {
+	background-color:#fff;
+}
+h2, .h2 {
+	color:$brand-default;
+	}
+#notice{
+	background:green;
+	color:white;
+	padding:10px;
+	-webkit-border-radius: 5px;
+	border-radius: 5px;
+}
+.iconlink {
+	margin-right:10px;
+}
+.address {
+	
+	div {
+		display:inline;
+		
+		.city {
+			display:inline-block;
+			clear:left;
+		}
+	}
+}
+
+main {
+	.h2, h2 {
+		color:$brand-default;
+		margin-top:8px;
+		font-size:24px;
+	}
+}
+form {
+	label {
+		/*display:block;*/
+		min-width:$label-min;
+		margin-top:5px;
+		white-space:nowrap;
+		float:left;
+		text-align:right;
+		color:gray;
+		padding-right:10px;
+		text-transform:capitalize;
+		vertical-align:bottom;
+		font-weight:normal;
+		width: 320px / 960px * 100%;
+	}
+	.form-control {
+		min-width:$input-min;
+	  width: 320px / 960px * 100%;
+	}
+	.h4 {
+		color:$gray;
+		margin-bottom:3px;
+		font-size:14px;
+		font-weight:bold;
+		
+	}
+	hr {
+		margin-bottom: 10px;
+   		margin-top:10px;
+	}
+}
+
+.bigbadge {
+	font-size:15px;
+	vertical-align: middle;
+	display:inline;
+}
+.btn-primary{
+	text-shadow: 1px 1px 1px #666666;
+}
+header {
+	width:100%;
+	background:$brand-default;
+	
+	h1 {
+		margin-top:8px;
+		color: #FFFFFF;
+		text-shadow: $shadow;
+		font-size:16px;
+		font-weight:bold;
+	}
+}
+footer {
+	padding-top:10px;
+	text-align:center;
+	
+	small {color:$gray-light;}
+}
+.leftbutton {
+	display:inline-block;
+	margin-left:40px;
+}
+.topright{
+	float:right;position:relative;display:block;z-index:1;top:5px;
+	}

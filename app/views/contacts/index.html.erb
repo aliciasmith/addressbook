@@ -1,0 +1,47 @@
+<% content_for :head do %>
+  <title>My Contacts</title>
+<% end %>
+
+
+<%= link_to 'Add New Contact', new_contact_path(@contact), class:"btn btn-primary topright" %>
+<h2>My Contacts <span class="badge bigbadge"><%= @contacts.count %></span></h2>
+
+
+<div class="table-responsive">
+<table class="table table-hover">
+<thead>
+  <tr>
+    <th>Name / Type</th>
+	<th>Phone</th>
+	<th>Email</th>
+    <th>Address</th>
+	<th/>
+  </tr>
+  </thead>
+<tbody>
+  <% @contacts.each do |contact| %>
+  <tr  id="contact<%= contact.id %>">
+		<td class="col-md-3 name"><%= link_to(contact.first_name + " " + contact.last_name, contact) %><br>
+		<small><%= contact.dist_type %></small></td>
+		<td class="col-md-2 phone"><%= contact.phone %></td>
+		
+	  	<td class="col-md-3 email"><a href="mailto:<%= contact.email %>"><%= contact.email %></a></td>
+		<td class="col-md-3 address">
+				<%= contact.address1 %> <%=contact.address2 %><%# if contact.address1.present? 
+				|| contact.address2.present? %><br>
+				  <%# end %>
+			  	
+				<%= contact.city %><% if contact.city.present? && contact.state.present? %>, <%end%>
+		
+				<%= contact.state %>
+				<%= contact.zip %>
+		</td>
+		<td class="col-md-1 buttons">
+		<%= link_to image_tag('icons/edit-icon.png', alt:"Edit Contact"), edit_contact_path(contact), class:"edit iconlink" %>
+		<%= link_to image_tag('icons/delete-icon.png', alt:"Delete Contact"), contact_path(contact), method: :delete, data: { confirm: 'Are you sure you want to remove this person?' }, class:"delete iconlink" %>
+		</td>
+    </tr><!-- /row -->
+	  <% end %>
+	  </tbody>
+</table>
+</div>
