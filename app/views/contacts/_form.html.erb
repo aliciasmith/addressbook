@@ -1,8 +1,8 @@
 <%= form_for @contact, :html => { :class => " ", :role => "form" }  do |f| %>
   <% if @contact.errors.any? %>
-  <div class="alert alert-warning alert-dismissable">
-    <h3><%= pluralize(@contact.errors.count, "error") %> prohibited
-      this contact from being saved:</h3>
+  <div class="alert alert-danger alert-dismissable">
+    <p><strong><%= pluralize(@contact.errors.count, "error") %> prohibited
+      this contact from being saved:</strong></p>
     <ul>
     <% @contact.errors.full_messages.each do |msg| %>
       <li><%= msg %></li>
@@ -56,7 +56,6 @@
 	  <div class="form-group">
 		<%= f.label :state %>
 		<%= f.text_field :state, :class => 'form-control input-sm' %>
-		<%#= select_tag 'State', options_for_select(us_states),:name=>"state",:id=>"state" %>
 	  </div>
 	  <div class="form-group">
 		<%= f.label :zip %>

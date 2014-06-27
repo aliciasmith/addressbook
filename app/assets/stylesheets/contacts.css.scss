@@ -9,6 +9,7 @@ $gray-light: lighten(#000, 70%);
 $shadow: 1px 1px 3px $gray;
 $cont-pad:15px;
 
+a:hover {text-decoration:none;}
 .container {padding:0 $cont-pad;}
 
 html, body {

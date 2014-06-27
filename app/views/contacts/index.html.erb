@@ -37,7 +37,7 @@
 				<%= contact.zip %>
 		</td>
 		<td class="col-md-1 buttons">
-		<%= link_to glyph(:pencil), edit_contact_path(contact), class:"edit iconlink" %>
+		<%= link_to image_tag('icons/edit-icon.png', alt:"Edit Contact"), edit_contact_path(contact), class:"edit iconlink" %>
 		<%= link_to image_tag('icons/delete-icon.png', alt:"Delete Contact"), contact_path(contact), method: :delete, data: { confirm: 'Are you sure you want to remove this person?' }, class:"delete iconlink" %>
 		</td>
     </tr><!-- /row -->
