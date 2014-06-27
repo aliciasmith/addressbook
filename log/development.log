@@ -24263,3 +24263,352 @@ Started GET "/assets/icons/edit-icon.png" for 127.0.0.1 at 2014-06-25 16:22:03 -
 
 
 Started GET "/assets/icons/delete-icon.png" for 127.0.0.1 at 2014-06-25 16:22:03 -0600
+  [1m[36m (26.0ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" character varying(255) NOT NULL) [0m
+  [1m[35m (6.0ms)[0m  CREATE UNIQUE INDEX  "unique_schema_migrations" ON "schema_migrations"  ("version")
+  [1m[36mActiveRecord::SchemaMigration Load (1.0ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to CreateContacts (20140624042129)
+  [1m[35m (0.0ms)[0m  BEGIN
+  [1m[36m (13.0ms)[0m  [1mCREATE TABLE "contacts" ("id" serial primary key, "first_name" character varying(255), "last_name" character varying(255), "address1" character varying(255), "address2" character varying(255), "city" character varying(255), "state" character varying(255), "zip" character varying(255), "dist_type" character varying(255), "email" character varying(255), "phone" character varying(255), "phone_type" character varying(255), "created_at" timestamp, "updated_at" timestamp) [0m
+  [1m[35mSQL (1.0ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20140624042129"]]
+  [1m[36m (4.0ms)[0m  [1mCOMMIT[0m
+  [1m[35mActiveRecord::SchemaMigration Load (1.0ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+
+
+Started GET "/" for 127.0.0.1 at 2014-06-26 20:14:04 -0600
+  [1m[36mActiveRecord::SchemaMigration Load (1.0ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by ContactsController#index as HTML
+  [1m[35m (3.0ms)[0m  SELECT COUNT(*) FROM "contacts"
+  [1m[36mContact Load (0.0ms)[0m  [1mSELECT "contacts".* FROM "contacts"[0m
+  Rendered contacts/index.html.erb within layouts/application (33.0ms)
+Completed 200 OK in 285ms (Views: 239.0ms | ActiveRecord: 6.0ms)
+
+
+Started GET "/assets/contacts.css?body=1" for 127.0.0.1 at 2014-06-26 20:14:06 -0600
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-06-26 20:14:06 -0600
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-06-26 20:14:06 -0600
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-06-26 20:14:06 -0600
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-06-26 20:14:06 -0600
+
+
+Started GET "/assets/contacts.js?body=1" for 127.0.0.1 at 2014-06-26 20:14:06 -0600
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-06-26 20:14:06 -0600
+
+
+Started GET "/contacts/new" for 127.0.0.1 at 2014-06-26 20:14:09 -0600
+Processing by ContactsController#new as HTML
+  Rendered contacts/_form.html.erb (264.0ms)
+  Rendered contacts/new.html.erb within layouts/application (324.0ms)
+Completed 200 OK in 341ms (Views: 339.0ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/contacts" for 127.0.0.1 at 2014-06-26 20:14:54 -0600
+Processing by ContactsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"IMaTgkg/pj55JNB/d7R2Yrzk1fB2Ej9ly7DnAY8SL5I=", "contact"=>{"first_name"=>"Marge", "last_name"=>"Simpson", "dist_type"=>"Diamond", "phone"=>"801-123-5555", "email"=>"marge@simp.son", "address1"=>"123 Main St.", "city"=>"Salt Lake City", "state"=>"UT", "zip"=>"84104"}, "commit"=>"Create Contact"}
+  [1m[35m (2.0ms)[0m  BEGIN
+  [1m[36mSQL (1.0ms)[0m  [1mINSERT INTO "contacts" ("address1", "city", "created_at", "dist_type", "email", "first_name", "last_name", "phone", "state", "updated_at", "zip") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11) RETURNING "id"[0m  [["address1", "123 Main St."], ["city", "Salt Lake City"], ["created_at", "2014-06-27 02:14:54.079306"], ["dist_type", "Diamond"], ["email", "marge@simp.son"], ["first_name", "Marge"], ["last_name", "Simpson"], ["phone", "801-123-5555"], ["state", "UT"], ["updated_at", "2014-06-27 02:14:54.079306"], ["zip", "84104"]]
+  [1m[35m (2.0ms)[0m  COMMIT
+Redirected to http://localhost:3000/contacts
+Completed 302 Found in 51ms (ActiveRecord: 6.0ms)
+
+
+Started GET "/contacts" for 127.0.0.1 at 2014-06-26 20:14:54 -0600
+Processing by ContactsController#index as HTML
+  [1m[36m (2.0ms)[0m  [1mSELECT COUNT(*) FROM "contacts"[0m
+  [1m[35mContact Load (1.0ms)[0m  SELECT "contacts".* FROM "contacts"
+  Rendered contacts/index.html.erb within layouts/application (12.0ms)
+Completed 200 OK in 29ms (Views: 24.0ms | ActiveRecord: 3.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-06-26 20:14:54 -0600
+
+
+Started GET "/assets/contacts.css?body=1" for 127.0.0.1 at 2014-06-26 20:14:54 -0600
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-06-26 20:14:54 -0600
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-06-26 20:14:54 -0600
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-06-26 20:14:54 -0600
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-06-26 20:14:54 -0600
+
+
+Started GET "/assets/contacts.js?body=1" for 127.0.0.1 at 2014-06-26 20:14:54 -0600
+
+
+Started GET "/assets/icons/edit-icon.png" for 127.0.0.1 at 2014-06-26 20:14:54 -0600
+
+
+Started GET "/assets/icons/delete-icon.png" for 127.0.0.1 at 2014-06-26 20:14:54 -0600
+
+
+Started GET "/" for 127.0.0.1 at 2014-06-26 20:59:05 -0600
+  [1m[36mActiveRecord::SchemaMigration Load (1.0ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by ContactsController#index as HTML
+  [1m[35m (1.0ms)[0m  SELECT COUNT(*) FROM "contacts"
+  [1m[36mContact Load (0.0ms)[0m  [1mSELECT "contacts".* FROM "contacts"[0m
+  Rendered contacts/index.html.erb within layouts/application (34.0ms)
+Completed 200 OK in 518ms (Views: 491.0ms | ActiveRecord: 4.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-06-26 20:59:07 -0600
+
+
+Started GET "/assets/contacts.css?body=1" for 127.0.0.1 at 2014-06-26 20:59:07 -0600
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-06-26 20:59:07 -0600
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-06-26 20:59:07 -0600
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-06-26 20:59:07 -0600
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-06-26 20:59:07 -0600
+
+
+Started GET "/assets/contacts.js?body=1" for 127.0.0.1 at 2014-06-26 20:59:08 -0600
+
+
+Started GET "/assets/icons/edit-icon.png" for 127.0.0.1 at 2014-06-26 20:59:08 -0600
+
+
+Started GET "/assets/icons/delete-icon.png" for 127.0.0.1 at 2014-06-26 20:59:08 -0600
+
+
+Started GET "/contacts/new" for 127.0.0.1 at 2014-06-26 20:59:12 -0600
+Processing by ContactsController#new as HTML
+  Rendered contacts/_form.html.erb (106.0ms)
+  Rendered contacts/new.html.erb within layouts/application (118.0ms)
+Completed 200 OK in 134ms (Views: 133.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/contacts/new" for 127.0.0.1 at 2014-06-26 20:59:32 -0600
+Processing by ContactsController#new as HTML
+  Rendered contacts/_form.html.erb (9.0ms)
+  Rendered contacts/new.html.erb within layouts/application (16.0ms)
+Completed 200 OK in 28ms (Views: 27.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-06-26 20:59:32 -0600
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-06-26 20:59:32 -0600
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-06-26 20:59:32 -0600
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-06-26 20:59:32 -0600
+
+
+Started GET "/assets/contacts.css?body=1" for 127.0.0.1 at 2014-06-26 20:59:32 -0600
+
+
+Started GET "/assets/contacts.js?body=1" for 127.0.0.1 at 2014-06-26 20:59:32 -0600
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-06-26 20:59:32 -0600
+
+
+Started GET "/contacts" for 127.0.0.1 at 2014-06-26 20:59:47 -0600
+Processing by ContactsController#index as HTML
+  [1m[35m (1.0ms)[0m  SELECT COUNT(*) FROM "contacts"
+  [1m[36mContact Load (0.0ms)[0m  [1mSELECT "contacts".* FROM "contacts"[0m
+  Rendered contacts/index.html.erb within layouts/application (9.0ms)
+Completed 200 OK in 23ms (Views: 20.0ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/assets/icons/delete-icon.png" for 127.0.0.1 at 2014-06-26 20:59:47 -0600
+
+
+Started GET "/assets/icons/edit-icon.png" for 127.0.0.1 at 2014-06-26 20:59:47 -0600
+
+
+Started GET "/contacts/new" for 127.0.0.1 at 2014-06-26 20:59:59 -0600
+Processing by ContactsController#new as HTML
+  Rendered contacts/_form.html.erb (5.0ms)
+  Rendered contacts/new.html.erb within layouts/application (9.0ms)
+Completed 200 OK in 23ms (Views: 23.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/contacts/new" for 127.0.0.1 at 2014-06-26 21:26:20 -0600
+Processing by ContactsController#new as HTML
+  Rendered contacts/_form.html.erb (7.0ms)
+  Rendered contacts/new.html.erb within layouts/application (10.0ms)
+Completed 200 OK in 24ms (Views: 23.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/contacts.css?body=1" for 127.0.0.1 at 2014-06-26 21:26:20 -0600
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-06-26 21:26:20 -0600
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-06-26 21:26:20 -0600
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-06-26 21:26:20 -0600
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-06-26 21:26:20 -0600
+
+
+Started GET "/assets/contacts.js?body=1" for 127.0.0.1 at 2014-06-26 21:26:20 -0600
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-06-26 21:26:20 -0600
+
+
+Started GET "/contacts/new" for 127.0.0.1 at 2014-06-26 21:27:34 -0600
+Processing by ContactsController#new as HTML
+  Rendered contacts/_form.html.erb (12.0ms)
+  Rendered contacts/new.html.erb within layouts/application (13.0ms)
+Completed 200 OK in 121ms (Views: 119.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/contacts.css?body=1" for 127.0.0.1 at 2014-06-26 21:27:34 -0600
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-06-26 21:27:34 -0600
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-06-26 21:27:34 -0600
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-06-26 21:27:34 -0600
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-06-26 21:27:34 -0600
+
+
+Started GET "/assets/contacts.js?body=1" for 127.0.0.1 at 2014-06-26 21:27:34 -0600
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-06-26 21:27:34 -0600
+
+
+Started GET "/contacts/new" for 127.0.0.1 at 2014-06-26 21:27:59 -0600
+Processing by ContactsController#new as HTML
+  Rendered contacts/_form.html.erb (6.0ms)
+  Rendered contacts/new.html.erb within layouts/application (9.0ms)
+Completed 200 OK in 21ms (Views: 20.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/contacts.css?body=1" for 127.0.0.1 at 2014-06-26 21:27:59 -0600
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-06-26 21:27:59 -0600
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-06-26 21:27:59 -0600
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-06-26 21:27:59 -0600
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-06-26 21:27:59 -0600
+
+
+Started GET "/assets/contacts.js?body=1" for 127.0.0.1 at 2014-06-26 21:27:59 -0600
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-06-26 21:27:59 -0600
+
+
+Started GET "/contacts/new" for 127.0.0.1 at 2014-06-26 21:28:25 -0600
+Processing by ContactsController#new as HTML
+  Rendered contacts/_form.html.erb (8.0ms)
+  Rendered contacts/new.html.erb within layouts/application (11.0ms)
+Completed 200 OK in 104ms (Views: 103.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-06-26 21:28:25 -0600
+
+
+Started GET "/assets/contacts.css?body=1" for 127.0.0.1 at 2014-06-26 21:28:25 -0600
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-06-26 21:28:25 -0600
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-06-26 21:28:25 -0600
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-06-26 21:28:25 -0600
+
+
+Started GET "/assets/contacts.js?body=1" for 127.0.0.1 at 2014-06-26 21:28:25 -0600
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-06-26 21:28:25 -0600
+
+
+Started GET "/contacts/new" for 127.0.0.1 at 2014-06-26 21:29:04 -0600
+Processing by ContactsController#new as HTML
+  Rendered contacts/_form.html.erb (6.0ms)
+  Rendered contacts/new.html.erb within layouts/application (7.0ms)
+Completed 200 OK in 18ms (Views: 17.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/contacts.css?body=1" for 127.0.0.1 at 2014-06-26 21:29:04 -0600
+
+
+Started GET "/assets/contacts.js?body=1" for 127.0.0.1 at 2014-06-26 21:29:04 -0600
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-06-26 21:29:05 -0600
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-06-26 21:29:05 -0600
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-06-26 21:29:05 -0600
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-06-26 21:29:05 -0600
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-06-26 21:29:05 -0600
+
+
+Started GET "/contacts/new" for 127.0.0.1 at 2014-06-26 21:29:30 -0600
+Processing by ContactsController#new as HTML
+  Rendered contacts/_form.html.erb (5.0ms)
+  Rendered contacts/new.html.erb within layouts/application (8.0ms)
+Completed 500 Internal Server Error in 53ms
+
+ActionView::Template::Error (Invalid CSS after "		a": expected "{", was "& {"
+
+"&" may only be used at the beginning of a compound selector.
+  (in C:/Users/Alicia/addressbook/app/assets/stylesheets/contacts.css.scss:105)):
+     5:     <title><%= content_for?(:title) ? yield(:title) : "Address Book" %></title>
+     6:     <meta name="description" content="<%= content_for?(:description) ? yield(:description) : "My Contacts" %>">
+     7: 	<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" rel="stylesheet">
+     8:     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
+     9:     <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+    10: 	<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+    11:     <%= csrf_meta_tags %>
+  app/assets/stylesheets/contacts.css.scss:105
+  app/views/layouts/application.html.erb:8:in `_app_views_layouts_application_html_erb__76403453_30572628'
+
+
+  Rendered C:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.0ms)
+  Rendered C:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (20.0ms)
+  Rendered C:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (102.0ms)
