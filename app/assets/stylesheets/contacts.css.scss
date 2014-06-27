@@ -7,6 +7,9 @@ $input-min: 350px;
 $gray: #666666;
 $gray-light: lighten(#000, 70%);
 $shadow: 1px 1px 3px $gray;
+$cont-pad:15px;
+
+.container {padding:0 $cont-pad;}
 
 html, body {
     height: 100%;
@@ -47,6 +50,7 @@ main {
 		color:$brand-default;
 		margin-top:8px;
 		font-size:24px;
+		font-weight:normal;
 	}
 }
 form {
@@ -102,8 +106,9 @@ header {
 		font-size:16px;
 		font-weight:bold;
 		
-		a, a:hover {
+		a, a:link, a:active, a:hover, a:visited {
 			color:white;
+			text-decoration:none;
 		}
 	}
 }

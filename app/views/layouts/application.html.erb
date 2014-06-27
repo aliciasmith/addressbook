@@ -4,19 +4,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><%= content_for?(:title) ? yield(:title) : "Address Book" %></title>
     <meta name="description" content="<%= content_for?(:description) ? yield(:description) : "My Contacts" %>">
-	<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" rel="stylesheet">
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-	<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
     <%= csrf_meta_tags %>
   </head>
   <body class="clearfix">
   <header class="hidden-print">
-  	<h1 class="container"><a href="/">Address Book</a></h1>
+  	<h1 class="container"><%= link_to 'Address Book', contacts_path %></h1>
     </header>
     <main role="main" class="container">
        <%= yield %>
     </main>
-	<footer><small>Ruby on Rails & Twitter Bootstrap Application &copy; 2014 <a href="https://www.dropbox.com/s/f7ubydaizsdiomm/AliciaPorterSmithResume2014.pdf">Alicia Smith</a></small></footer>
+	<footer><small>Ruby on Rails & Twitter Bootstrap Application &copy; 2014 <a href="http://lnkd.in/b4uVpSg">Alicia Smith</a></small></footer>
   </body>
 </html>
